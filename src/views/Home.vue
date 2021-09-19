@@ -1,30 +1,26 @@
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, computed } from "vue";
+import { useStore } from "vuex";
 import { User } from "@/typings";
-import api from "@/api";
 
 export default defineComponent({
-  name: "Home",
   setup() {
-    const app = reactive({ user: {} as User });
+    const userId = 3;
+    const store = useStore();
+    const user = computed(() => store.state.user as User);
 
-    onMounted(async () => {
-      try {
-        const response = await api.getUser(3);
-        app.user = response.data;
-      } catch (e) {
-        console.error(e);
-      }
-    });
+    store.dispatch("getUser", userId);
+
     return {
-      app,
+      user,
     };
   },
 });
 </script>
 
 <template>
-  <div>Home page - user posts</div>
-  <div>Hello {{ app.user.name }}</div>
-  <div>{{ app.user }}</div>
+  <div v-if="user.name">
+    <h2>Hello {{ user.name }}</h2>
+  </div>
+  <div v-else>Loading...</div>
 </template>
