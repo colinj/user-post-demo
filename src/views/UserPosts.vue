@@ -21,9 +21,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-for="post in posts" :key="post.id">
-    <router-link :to="`/posts/${post.id}`">
-      {{ post.title }}
-    </router-link>
+  <div>
+    <h1>Posts</h1>
+    <div class="list-group">
+      <router-link
+        class="list-group-item list-group-item-action"
+        :to="`/posts/${post.id}`"
+        v-for="post in posts"
+        :key="post.id"
+      >
+        {{ post.title }}
+      </router-link>
+    </div>
   </div>
 </template>

@@ -2,8 +2,11 @@
 import { defineComponent, computed, watch } from "vue";
 import { useStore } from "vuex";
 import { Post } from "@/typings";
+import PostCard from "@/components/PostCard.vue";
+import CommentCard from "@/components/CommentCard.vue";
 
 export default defineComponent({
+  components: { PostCard, CommentCard },
   props: {
     id: {
       type: String,
@@ -38,14 +41,14 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="post">
-      <div>{{ post.title }}</div>
-      <div>{{ post.body }}</div>
-    </div>
+    <router-link to="/" class="d-block fs-5 mb-4">
+      Return to posts
+    </router-link>
+    <PostCard :post="post" />
     <hr />
-    <div v-for="comment in comments" :key="comment.id">
-      <div>{{ comment.email }}</div>
-      <div>{{ comment.body }}</div>
+    <h4>{{ comments.length }} Comment{{ comments.length === 1 ? "" : "s" }}</h4>
+    <div v-for="comment in comments" :key="comment.id" class="comment-card">
+      <CommentCard :comment="comment" />
     </div>
   </div>
 </template>
