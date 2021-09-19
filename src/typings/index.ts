@@ -1,5 +1,5 @@
 export interface User {
-  id: string;
+  id: number;
   name: string;
   username: string;
   email: string;
@@ -17,7 +17,7 @@ export interface User {
   website: string;
   company: {
     name: string;
-    catchphrase: string;
+    catchPhrase: string;
     bs: string;
   };
 }

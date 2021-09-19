@@ -22,7 +22,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <h1>Posts</h1>
+    <h1>{{ posts.length }} Post{{ posts.length === 1 ? "" : "s" }}</h1>
     <div class="list-group">
       <router-link
         class="list-group-item list-group-item-action"
