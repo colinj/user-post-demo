@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, computed, PropType } from "vue";
-import { Post } from "@/typings";
+import { User, Post } from "@/typings";
 
 export default defineComponent({
   props: {
@@ -8,11 +8,16 @@ export default defineComponent({
       type: Object as PropType<Post>,
       required: true,
     },
+    user: {
+      type: Object as PropType<User>,
+      required: true,
+    },
   },
   setup(props) {
     const paragraphs = computed(() => props.post.body?.split("\n"));
     return {
       paragraphs,
+      userName: props.user.name,
     };
   },
 });
@@ -22,7 +27,7 @@ export default defineComponent({
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">{{ post.title }}</h3>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{ userName }}</h6>
       <div class="card-text">
         <p v-for="(paragraph, index) in paragraphs" :key="index">
           {{ paragraph }}
@@ -32,4 +37,8 @@ export default defineComponent({
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card {
+  background-color: lightblue;
+}
+</style>

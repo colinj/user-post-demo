@@ -12,11 +12,17 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "",
         component: UserPosts,
+        meta: {
+          transition: "slide-left",
+        },
       },
       {
         path: "posts/:id",
         component: Post,
         props: true,
+        meta: {
+          transition: "slide-right",
+        },
       },
     ],
   },

@@ -22,10 +22,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-if="user.name">
+  <div v-if="user.name" class="relative">
     <h2>Hello {{ user.name }}</h2>
     <hr />
-    <router-view />
+    <router-view v-slot="{ Component, route }">
+      <transition :name="route.meta.transition || 'fade'">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
   <div v-else>Loading...</div>
 </template>
