@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "@/views/Home.vue";
 import UserPosts from "@/views/UserPosts.vue";
+import Post from "@/views/Post.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,6 +12,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "",
         component: UserPosts,
+      },
+      {
+        path: "posts/:id",
+        component: Post,
+        props: true,
       },
     ],
   },
