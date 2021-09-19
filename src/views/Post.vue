@@ -52,6 +52,9 @@ export default defineComponent({
     <div v-for="comment in comments" :key="comment.id" class="comment-card">
       <CommentCard :comment="comment" />
     </div>
+    <router-link to="/" class="d-block fs-5 my-4">
+      Return to posts
+    </router-link>
   </div>
 </template>
 
