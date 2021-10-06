@@ -27,7 +27,7 @@ export default defineComponent({
     <hr />
     <router-view v-slot="{ Component, route }">
       <transition :name="route.meta.transition || 'fade'">
-        <component :is="Component" />
+        <component :is="Component" class="full-width" />
       </transition>
     </router-view>
   </div>

@@ -17,22 +17,22 @@
 
 .slide-right-enter-to {
   position: absolute;
-  right: 0;
+  transform: translateX(0);
 }
 
 .slide-right-enter-from {
   position: absolute;
-  right: -100%;
+  transform: translateX(100%);
 }
 
 .slide-right-leave-to {
   position: absolute;
-  left: -100%;
+  transform: translateX(-100%);
 }
 
 .slide-right-leave-from {
   position: absolute;
-  left: 0;
+  transform: translateX(0);
 }
 
 // slide-left
@@ -43,20 +43,20 @@
 
 .slide-left-enter-to {
   position: absolute;
-  left: 0;
+  transform: translateX(0);
 }
 
 .slide-left-enter-from {
   position: absolute;
-  left: -100%;
+  transform: translateX(-100%);
 }
 
 .slide-left-leave-to {
   position: absolute;
-  right: -100%;
+  transform: translateX(100%);
 }
 
 .slide-left-leave-from {
   position: absolute;
-  right: 0;
+  transform: translateX(0);
 }
