@@ -1,6 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import { User, Post } from "@/typings";
-import PostCard from "@/components/PostCard.vue";
+import PostCard from "../../src/components/PostCard.vue";
+// import PostCard from "@/components/PostCard.vue";
 
 const user: User = {
   id: 1,
